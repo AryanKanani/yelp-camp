@@ -10,7 +10,7 @@ db.once("open", () => {
     console.log("Database connected");
 });
 
-const sample = array => array[Math.floor(Math.random * array.length)]
+const sample = array => array[Math.floor(Math.random() * array.length)]
 
 const seedDB = async () => {
     await Campground.deleteMany({})
@@ -26,6 +26,9 @@ const seedDB = async () => {
         await camp.save();
     }
 }
+
+console.log(places);
+console.log(descriptors);
 
 seedDB().then(() => {
     mongoose.connection.close()
